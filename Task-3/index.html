@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="form">
+      Number:
+      <input
+        type="textbox"
+        id="number"
+        placeholder="Array Değeri Giriniz:"
+      /><br />
+      Target: <input type="number" id="target" placeholder="Sayı Giriniz" />
+      <br />
+      <button type="button" class="button" onclick="twoSum()">Run</button>
+      <p id="result">Result:</p>
+    </form>
+    <script>
+      function twoSum() {
+        const numbers = document.getElementById("number").value;
+        const targetValue = document.getElementById("target").value;
+        const results = document.getElementById("result").value;
+        let numberArray = numbers.split(",");
+        {
+          for (let i = 0; i < numberArray.length; i++) {
+            for (let j = i + 1; j < numberArray.length; j++) {
+              if (
+                parseInt(numberArray[i], 10) + parseInt(numberArray[j], 10) ===
+                parseInt(targetValue, 10)
+              ) {
+                document.getElementById("result").innerText =
+                  "Result: " + i + "," + j;
+              }
+              if (
+                parseInt(numberArray[i], 10) + parseInt(numberArray[j], 10) !==
+                parseInt(targetValue, 10)
+              ) {
+                alert("Girilen değerler doğru değil");
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
