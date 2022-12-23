@@ -3,12 +3,14 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const renameButton = document.querySelector(".rename-btn");
+const deleteallButton = document.querySelector(".deleteAll-btn");
 
 document.addEventListener("DOMContentLoaded", getLocalTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("change", filterTodo);
 renameButton.addEventListener("click", renameBtn);
+deleteallButton.addEventListener("click", deleteAllBtn);
 
 function addTodo(event) {
   event.preventDefault();
@@ -37,6 +39,11 @@ function addTodo(event) {
   renameButton.classList.add("rename-btn");
   todoDiv.appendChild(renameButton);
 
+  const deleteallButton = document.createElement("button");
+  deleteallButton.innerHTML = '<i class="fa-solid fa-fire-extinguisher"></i>';
+  deleteallButton.classList.add("deleteAll-btn");
+  todoDiv.appendChild(deleteallButton);
+
   todoList.appendChild(todoDiv);
   todoInput.value = "";
 }
@@ -60,7 +67,14 @@ function deleteCheck(e) {
   }
 }
 
-function renameBtn(e) {}
+function renameBtn() {}
+
+function deleteAllBtn(e) {
+  if (confirm("Tüm elemanları silmek istediğinize emin misiniz?")) {
+    const item = e.target;
+    item.classList[0] === "";
+  }
+}
 
 function filterTodo(e) {
   const todos = todoList.childNodes;
@@ -124,9 +138,15 @@ function getLocalTodos() {
     todoDiv.appendChild(trashButton);
 
     const renameButton = document.createElement("button");
-    renameButton.innerHTML = '<i class="fa-sharp fa-solid fa-ornament"></i>';
+    renameButton.innerHTML =
+      '<i class="fa-sharp fa-solid fa-magnifying-glass"></i>';
     renameButton.classList.add("rename-btn");
     todoDiv.appendChild(renameButton);
+
+    const deleteallButton = document.createElement("button");
+    deleteallButton.innerHTML = '<i class="fa-solid fa-fire-extinguisher"></i>';
+    deleteallButton.classList.add("deleteAll-btn");
+    todoDiv.appendChild(deleteallButton);
 
     todoList.appendChild(todoDiv);
   });
