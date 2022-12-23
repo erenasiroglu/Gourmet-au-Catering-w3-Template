@@ -78,7 +78,8 @@ form button:hover {
 
 .trash-btn,
 .complete-btn,
-.rename-btn {
+.rename-btn,
+.deleteAll-btn {
   color: white;
   border: none;
   padding: 1rem;
@@ -93,7 +94,11 @@ form button:hover {
 .trash-btn {
   background: rgb(171, 171, 171);
 }
+
 .rename-btn {
+  background: aquamarine;
+}
+.deleteAll-btn {
   border-top-right-radius: 1.75rem;
   border-bottom-right-radius: 1.75rem;
   background: #000046;
@@ -104,7 +109,9 @@ form button:hover {
 }
 
 .fa-trash,
-.fa-check-circle {
+.fa-check-circle,
+.fa-cubes,
+.fa-ornament {
   pointer-events: none;
 }
 
